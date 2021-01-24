@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import logo from '../logo.svg';
 
 
@@ -12,10 +14,10 @@ function HeaderComponent() {
             <img src={logo} className="App-logo" alt="logo" />
             <div>
                 <ul>
-                    <li>Grocery List Class Component</li>
-                    <li>Grocery List Functional</li>
-                    <li>Notes Component</li>
-                    <li>Notes Class Component</li>
+                    <li><Link to='/GroceryClass'>Grocery List Class Component</Link></li>
+                    <li><Link to='GroceryFunctional'>Grocery List Functional Component</Link></li>
+                    <li><Link to='NotesClass'>Notes Class Component</Link></li>
+                    <li><Link to='NotesFunctional'>Notes Functional Component</Link></li>
                 </ul>
             </div>
             <img src={logo} className="App-logo" alt="logo" />
