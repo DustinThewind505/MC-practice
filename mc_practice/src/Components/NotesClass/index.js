@@ -1,0 +1,1 @@
+export { default as NotesClass } from './NotesClass';
