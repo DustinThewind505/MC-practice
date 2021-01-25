@@ -1,10 +1,61 @@
-import React from 'react';
+// ============ IMPORTS ============
+import React, { useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
+import logo from '../../logo.svg';
+import SearchForm from './serchForm';
+import GroceryList from './GroceryList';
 
+import './GroceryFunctional.css';
+
+const initialGroceries = [
+  {
+    id: uuid(),
+    item: 'Tortillas',
+    complete: false
+  },
+  {
+    id: uuid(),
+    item: 'Beans',
+    complete: false
+  }
+]
 
 function GroceryFunctional() {
+  // ============ STATE ============
+  const [groceries, setGroceries] = useState(initialGroceries);
 
+  // ============ FUNCTIONS ============
+  const addNewItem = itemName => {
+    const newItem = {
+      id: uuid(),
+      item: itemName,
+      complete: false
+    }
 
+    setGroceries([...groceries, newItem])
+  }
+
+  const toggleComplete = itemId => {
+    const newList = groceries.map(grocery => {
+      if(itemId === grocery.id) {
+        return {
+          ...grocery,
+          complete: !grocery.complete
+        }
+      } else {
+        return grocery
+      }
+    })
+
+    setGroceries(newList)
+  }
+
+  const clearComplete = () => {
+    const newList = groceries.filter(grocery => grocery.complete === false)
+
+    setGroceries(newList)
+  }
 
 
     return(
@@ -12,6 +63,19 @@ function GroceryFunctional() {
             <h2>Grocery List Functional Component TEST TEST TEST</h2>
         </div>
     )
+=======
+  // ============ COMPONENT ============
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1>Grocery List</h1>
+      </header>
+      <SearchForm addNewItem={addNewItem} />
+      <GroceryList groceries={groceries} toggleComplete={toggleComplete} clearComplete={clearComplete} />
+    </div>
+  );
+
 }
 
 export default GroceryFunctional;
