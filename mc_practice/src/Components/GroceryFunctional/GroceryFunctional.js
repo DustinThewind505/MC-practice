@@ -9,7 +9,7 @@ function GroceryFunctional() {
 
     return(
         <div>
-            <h2>Grocery List Functional Component</h2>
+            <h2>Grocery List Functional Component TEST TEST TEST</h2>
         </div>
     )
 }
