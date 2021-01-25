@@ -28,6 +28,7 @@ function App() {
           <Route path='/NotesFunctional'>
             <NotesFunctional />
           </Route>
+          <h1>The App</h1>
         <FooterComponent />
       </div>
     </Router>
