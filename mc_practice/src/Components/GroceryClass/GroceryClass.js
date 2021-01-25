@@ -77,7 +77,7 @@ class GroceryClass extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Grocery List</h1>
+          <h1>Grocery List (Class)</h1>
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <SearchForm addNewItem={this.addNewItem} />
