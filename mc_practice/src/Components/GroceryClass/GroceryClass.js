@@ -16,7 +16,7 @@ const initialGroceries = [
   },
   {
     id: uuid(),
-    item: 'Cheese',
+    item: 'Colby Jack Cheese',
     complete: false
   }
 ]
