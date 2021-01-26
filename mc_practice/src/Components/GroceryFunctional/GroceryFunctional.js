@@ -57,13 +57,6 @@ function GroceryFunctional() {
     setGroceries(newList)
   }
 
-
-    return(
-        <div>
-            <h2>Grocery List Functional Component TEST TEST TEST</h2>
-        </div>
-    )
-=======
   // ============ COMPONENT ============
   return (
     <div className="App">
@@ -75,7 +68,6 @@ function GroceryFunctional() {
       <GroceryList groceries={groceries} toggleComplete={toggleComplete} clearComplete={clearComplete} />
     </div>
   );
-
 }
 
 export default GroceryFunctional;
