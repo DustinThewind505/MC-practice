@@ -9,8 +9,10 @@ function GroceryList(props) {
     // ============ COMPONENT ============
     return (
         <>
-            <div className='grocery-list'>{props.groceries.map(element => <Grocery grocery={element} toggleComplete={props.toggleComplete} />)}</div>
-            <button onClick={() => props.clearComplete()}>Clear</button>
+            <div className='grocery-list'>
+                {props.groceries.map(element => <Grocery grocery={element} dispatch={props.dispatch} />)}
+            </div>
+            <button onClick={() => props.dispatch({ type: 'CLEAR_COMPLETE'})}>Clear</button>
         </>
     )
 }

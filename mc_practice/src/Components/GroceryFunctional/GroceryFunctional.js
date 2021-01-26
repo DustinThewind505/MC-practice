@@ -67,7 +67,7 @@ function GroceryFunctional() {
         <h1>Grocery List</h1>
       </header>
       <SearchForm dispatch={dispatch} />
-      <GroceryList groceries={groceriesState} />
+      <GroceryList groceries={groceriesState} dispatch={dispatch} />
       {/* <GroceryList groceries={groceriesState} toggleComplete={toggleComplete} clearComplete={clearComplete} /> */}
     </div>
   );
