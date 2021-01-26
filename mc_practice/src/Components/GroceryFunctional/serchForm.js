@@ -13,7 +13,7 @@ function SearchForm(props) {
     const handleSubmit = e => {
         e.preventDefault();
 
-        props.addNewItem(formData.textInput)
+        props.dispatch({type: 'ADD_NEW_GROCERY', payload: formData.textInput})
 
         setFormData({
             textInput: ""

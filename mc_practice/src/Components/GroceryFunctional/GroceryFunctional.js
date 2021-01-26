@@ -1,69 +1,64 @@
 // ============ IMPORTS ============
-import React, { useState } from 'react';
-import { v4 as uuid } from 'uuid';
+import React, { useReducer } from 'react';
+// import { v4 as uuid } from 'uuid';
 
 import logo from '../../logo.svg';
 import SearchForm from './serchForm';
 import GroceryList from './GroceryList';
 
+import { initialGroceries, groceryReducer } from './Reducer/groceryReducer';
 import './GroceryFunctional.css';
 
-const initialGroceries = [
-  {
-    id: uuid(),
-    item: 'Tortillas',
-    complete: false
-  },
-  {
-    id: uuid(),
-    item: 'Beans',
-    complete: false
-  }
-]
+// const initialGroceries = [
+//   {
+//     id: uuid(),
+//     item: 'Tortillas',
+//     complete: false
+//   },
+//   {
+//     id: uuid(),
+//     item: 'Beans',
+//     complete: false
+//   }
+// ]
 
 function GroceryFunctional() {
   // ============ STATE ============
-  const [groceries, setGroceries] = useState(initialGroceries);
+  const [groceriesState, dispatch] = useReducer(groceryReducer, initialGroceries);
 
   // ============ FUNCTIONS ============
-  const addNewItem = itemName => {
-    const newItem = {
-      id: uuid(),
-      item: itemName,
-      complete: false
-    }
+  // const addNewItem = itemName => {
+  //   const newItem = {
+  //     id: uuid(),
+  //     item: itemName,
+  //     complete: false
+  //   }
 
-    setGroceries([...groceries, newItem])
-  }
+  //   setGroceries([...groceries, newItem])
+  // }
 
-  const toggleComplete = itemId => {
-    const newList = groceries.map(grocery => {
-      if(itemId === grocery.id) {
-        return {
-          ...grocery,
-          complete: !grocery.complete
-        }
-      } else {
-        return grocery
-      }
-    })
+  // const toggleComplete = itemId => {
+  //   const newList = groceries.map(grocery => {
+  //     if(itemId === grocery.id) {
+  //       return {
+  //         ...grocery,
+  //         complete: !grocery.complete
+  //       }
+  //     } else {
+  //       return grocery
+  //     }
+  //   })
 
-    setGroceries(newList)
-  }
+  //   setGroceries(newList)
+  // }
 
-  const clearComplete = () => {
-    const newList = groceries.filter(grocery => grocery.complete === false)
+  // const clearComplete = () => {
+  //   const newList = groceries.filter(grocery => grocery.complete === false)
 
-    setGroceries(newList)
-  }
+  //   setGroceries(newList)
+  // }
 
 
-    return(
-        <div>
-            <h2>Grocery List Functional Component TEST TEST TEST</h2>
-        </div>
-    )
-=======
   // ============ COMPONENT ============
   return (
     <div className="App">
@@ -71,8 +66,9 @@ function GroceryFunctional() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Grocery List</h1>
       </header>
-      <SearchForm addNewItem={addNewItem} />
-      <GroceryList groceries={groceries} toggleComplete={toggleComplete} clearComplete={clearComplete} />
+      <SearchForm dispatch={dispatch} />
+      <GroceryList groceries={groceriesState} />
+      {/* <GroceryList groceries={groceriesState} toggleComplete={toggleComplete} clearComplete={clearComplete} /> */}
     </div>
   );
 
